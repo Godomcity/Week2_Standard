@@ -5,34 +5,43 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     public GameObject prefab;
-    private List<GameObject> pool = new List<GameObject>();
-    public int poolSIze = 300;
+    [SerializeField] private List<GameObject> pool = new List<GameObject>();
+    private Dictionary<string, Queue<GameObject>> poolDictionaty;
+    public int poolSize = 300;
 
     void Start()
     {
-        for (int i = 0; i < poolSIze; i++)
+        poolDictionaty = new Dictionary<string, Queue<GameObject>>();
+
+        foreach (var poolObj in pool)
         {
-            GameObject go = Instantiate(prefab);
-            go.SetActive(false);
-            pool.Add(go);
+            Queue<GameObject> queue = new Queue<GameObject>();
+            for (int i = 0; i < poolSize; i++)
+            {
+                GameObject go = Instantiate(prefab);
+                go.SetActive(false);
+                queue.Enqueue(go);
+            }
+            poolDictionaty.Add(poolObj.name, queue);
         }
     }
 
-    public GameObject Get()
+    public GameObject Get(string name)
     {
-        foreach (GameObject go in pool)
+        if (!poolDictionaty.ContainsKey(name))
         {
-            if (go.activeSelf == false)
-            {
-                return go;
-            }
+            return null;
         }
-        return null;
+
+        GameObject go = poolDictionaty[name].Dequeue();
+        poolDictionaty[name].Enqueue(go);
+
+        go.SetActive(true);
+        return go;
     }
 
     public void Release(GameObject obj)
     {
         obj.SetActive(false);
-        pool.Remove(obj);
     }
 }
