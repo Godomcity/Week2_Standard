@@ -20,17 +20,19 @@ public class ObjectPool : MonoBehaviour
 
     public GameObject Get()
     {
-        GameObject obj = null;
         foreach (GameObject go in pool)
         {
-            obj = go;
-            obj.SetActive(true);
+            if (go.activeSelf == false)
+            {
+                return go;
+            }
         }
-        return obj;
+        return null;
     }
 
     public void Release(GameObject obj)
     {
-
+        obj.SetActive(false);
+        pool.Remove(obj);
     }
 }
