@@ -15,7 +15,7 @@ MonoBehaviour:
   QuestName: "\uC720\uB2C8\uD2F0 \uB9C8\uC2A4\uD130\uAC00 \uB418\uB294 \uAE38"
   QuestRequiredLevel: 70
   QuestNPC: 1
-  QuestPrerequisites: []
+  QuestPrerequisites: 00000000
   MonsterName: "\uD55C\uD61C\uB9B0 \uB9E4\uB2C8\uC800\uB2D8\uC758 \uAFB8\uC900 \uACFC\uC81C"
   MonsterLevel: 0
   Monster: 50
