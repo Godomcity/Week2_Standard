@@ -6,6 +6,8 @@ public class QuestManager : MonoBehaviour
 {
     private static QuestManager instance;
 
+    public DataSO[] quests; 
+
     public static QuestManager Instance
     {
         get
@@ -30,5 +32,11 @@ public class QuestManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    private void Start()
+    {
+        Debug.Log($"Quest 1 - {quests[0].QuestName} (최소 레벨 {quests[0].QuestRequiredLevel})");
+        Debug.Log($"Quest 2 - {quests[1].QuestName} (최소 레벨 {quests[1].QuestRequiredLevel})");
     }
 }

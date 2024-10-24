@@ -8,8 +8,8 @@ public class DataSO : ScriptableObject
 {
     [Header("Quset Info")]
 
-    string QuserName;
-    int QuestRequiredLevel;
-    int QuestNPC;
-    List<int> QuestPrerequisites;
+    public string QuestName;
+    public int QuestRequiredLevel;
+    public int QuestNPC;
+    public List<DataSO> QuestPrerequisites;
 }
