@@ -4,5 +4,5 @@ public class EncounterQuestDataSO : DataSO
 {
     [Header("EncounterQuest")]
 
-    public string npcName
+    public string npcName;
 }
