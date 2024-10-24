@@ -247,6 +247,10 @@ MonoBehaviour:
   quests:
   - {fileID: 11400000, guid: 56966661af70fdd44aa9325c073b8dae, type: 2}
   - {fileID: 11400000, guid: f2ff6d1eb67c5344babe17ad61786cea, type: 2}
+  monsters:
+  - {fileID: 11400000, guid: aa5732843507e9a45a4ef692d07b68b7, type: 2}
+  encounters:
+  - {fileID: 11400000, guid: d0fe5700977a583429c7c203aef54a69, type: 2}
 --- !u!4 &1658983295
 Transform:
   m_ObjectHideFlags: 0
